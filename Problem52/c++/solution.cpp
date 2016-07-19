@@ -11,7 +11,7 @@ int Solution::totalNQueens(int n)
 {
   nSolution=0;
   std::vector<int> input(n,-1);
-  bool result=Helper(0,input);
+  Helper(0,input);
   return nSolution;
 }
 bool Solution::Helper(int n, std::vector<int>& v)
