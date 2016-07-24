@@ -1,0 +1,20 @@
+class Solution(object):
+    Output=''
+    count=0
+    def dfs(self, n, k, string, stringlist):
+        if len(stringlist) == n: 
+            self.count += 1
+            if self.count == k: 
+                #print stringlist
+                self.Output=stringlist
+                return 
+        for i in range(len(string)):
+            self.dfs(n, k, string[:i]+string[i+1:], stringlist+string[i])
+
+    def getPermutation(self, n, k):
+        string = ''
+        for i in range(n): string += str(i+1)
+        #self.count = 0
+        self.dfs(n, k, string, '')
+        #print('res',self.Output)
+        return self.Output
